@@ -45,7 +45,7 @@ describe FeeCalculator do
     expect(FeeCalculator.calculate([item1, item2, item3], [discount])).to eq 3
   end
 
-  xit 'reduces fees by 2 dollars if the price is > 500' do
+  it 'reduces fees by 2 dollars if the price is > 500' do
     item1 = double(:item1, price: 125, weight: 3)
     item2 = double(:item2, price: 125, weight: 3)
     item3 = double(:item3, price: 251, weight: 3)
