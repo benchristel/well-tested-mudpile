@@ -1,5 +1,7 @@
 require_relative '../lib/fee_calculator.rb'
 
+###### DO NOT CHANGE THIS FILE ######
+
 describe FeeCalculator do
   it 'charges 1 dollar per item' do
     items = [
