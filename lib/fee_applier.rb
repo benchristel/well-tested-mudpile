@@ -1,21 +1,20 @@
+require_relative './fee'
+
 class FeeApplier
+
+  FEE_AMOUNTS = {
+    'weight' => 2,
+    'price' => 4,
+    'base' => 1,
+  }
+
   def initialize(item)
     @item = item
   end
 
   def apply(type, fee)
     if Fee.of_type(type).applies?(@item)
-      if type == 'weight'
-        fee[0] += 2
-      end
-
-      if type == 'price'
-        fee[0] += 4
-      end
-
-      if type == 'base'
-        fee[0] += 1
-      end
+      fee[0] += FEE_AMOUNTS[type]
     end
 
     self

@@ -1,8 +1,9 @@
 class Fee
   def self.of_type(type)
-    if type == 'weight'
+    case type
+    when 'weight'
       WeightFee.new
-    elsif type == 'price'
+    when 'price'
       PriceFee.new
     else
       BaseFee.new

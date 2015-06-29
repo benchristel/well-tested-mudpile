@@ -1,13 +1,13 @@
 class DiscountApplier
-  def initialize(discount, fee, total_order = 0)
+  def initialize(discount, fee, order_total = 0)
     @discount = discount
     @fee = fee
-    @total_order = total_order
+    @order_total = order_total
   end
 
   def apply_fee_change
     if @discount.nil?
-      @fee[0] -= 2 if @total_order > 500
+      @fee[0] -= 2 if @order_total > 500
     else
       case @discount.type
       when 'no_weight_bonus'
