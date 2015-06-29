@@ -1,9 +1,7 @@
 require_relative '../lib/fee_calculator.rb'
 
-###### DO NOT CHANGE THIS FILE ######
-
 describe FeeCalculator do
-  it 'charges 1 dollar per item' do
+  it 'calculates the fee' do
     items = [
       double(price: 105, weight: 30),
       double(price: 3, weight: 5),
@@ -17,5 +15,17 @@ describe FeeCalculator do
     ]
 
     expect(FeeCalculator.calculate(items, discounts)).to eq 8
+  end
+
+  xit 'can handle a half off fee discount' do
+    items = [
+      double(price: 105, weight: 3),
+    ]
+
+    discounts = [
+      double(item: items[0], type: 'half_fee'),
+    ]
+
+    expect(FeeCalculator.calculate(items, discounts)).to eq 2.5
   end
 end
